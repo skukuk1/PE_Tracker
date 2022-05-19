@@ -3,19 +3,20 @@
 <head>
   <title>DB Info</title>
   <meta charset="UTF-8">
+    <link href="/css/styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
   <h1>Database Tables</h1>
-  <ul>
+  <ul id="ul-tables">
     <% tables.forEach(function(r) { %>
       <li><%= r.table %>: <%= r.column %> (<%= r.type %>)</li>
     <% }); %>
-  </ul>
+  </ul><br>
   <h1>Observations</h1>
-  <ul>
+  <ul id="ul-observations">
     <% obs.forEach(function(r) { %>
       <li><%= r.tasks_id %> for <%= r.duration.minutes || "00" %>:<%= r.duration.seconds || "00" %></li>
     <% }); %>
-  </ul>
+  </ul><br>
 </body>
 </html>

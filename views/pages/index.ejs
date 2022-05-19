@@ -3,9 +3,12 @@
 <head>
   <title>PE Tracker</title>
   <meta charset="UTF-8">
+  <link href="/css/styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-  <h1>PE Tracker</h1>
+  <h1>UW-L Modified P.E.T.A.I.</h1>
+  <h2>Physical Education Teacher</h2>
+  <h2>Assessment Instruction</h2>
   <% tasks.forEach(function(r) {%>
     <button id='<%= r.id %>'
         onClick='javascript:logTask(<%= r.id %>);'><%= r.name %></button>
