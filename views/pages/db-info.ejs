@@ -6,13 +6,15 @@
     <link href="/css/styles.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-  <h1>Database Tables</h1>
+  <h1>UW-L Modified P.E.T.A.I.</h1>
+  <h2>Database Information</h2>
+  <h3>Database Tables</h3>
   <ul id="ul-tables">
     <% tables.forEach(function(r) { %>
       <li><%= r.table %>: <%= r.column %> (<%= r.type %>)</li>
     <% }); %>
   </ul><br>
-  <h1>Observations</h1>
+  <h3>Observations</h3>
   <ul id="ul-observations">
     <% obs.forEach(function(r) { %>
       <li><%= r.tasks_id %> for <%= r.duration.minutes || "00" %>:<%= r.duration.seconds || "00" %></li>

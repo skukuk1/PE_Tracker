@@ -1,40 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>PE Tracker</title>
-  <meta charset="UTF-8">
-  <link href="/css/styles.css" rel="stylesheet" type="text/css">
-</head>
-<body>
-  <h1>UW-L Modified P.E.T.A.I.</h1>
-  <h2>Physical Education Teacher</h2>
-  <h2>Assessment Instruction</h2>
-  <% tasks.forEach(function(r) {%>
-    <button id='<%= r.id %>'
-        onClick='javascript:logTask(<%= r.id %>);'><%= r.name %></button>
-  <% }); %>
-  <script>
-      let currentTaskId = null;
+  <head>
+    <title>PE Tracker</title>
+    <meta charset="UTF-8">
+    <link href="/css/styles.css" rel="stylesheet" type="text/css">
+  </head>
+  <body>
+    <div class="h1h2">
+      <h1>UW-L Modified P.E.T.A.I.</h1>
+      <h2>Physical Education Teacher</h2>
+      <h2 style="padding-bottom: 10px;">
+        Assessment Instruction
+      </h2>
+    </div>
 
-      const logTask = async function(id) {
-          const response = await fetch('/log', {
-              method: 'POST',
-              headers: {
-                  'Accept': 'application/json',
-                  'Content-Type': 'application/json'
-              },
-              body: JSON.stringify({
-                  users_id: -1,
-                  students_id: -1,
-                  tasks_id: id,
-                  duration: "'+00:00:01'"
-              })
-          });
-          const result = await response.text();
-          console.log(result);
-
-          currentTaskId = id;
-      };
-  </script>
-</body>
+    <div class="flex-container">
+      <div>
+        <h3>Information</h3>
+        <!-- form partial -->
+        <%- include('../partials/form.ejs') %><br>
+      </div>
+      <div>
+        <h3>Behavior</h3>
+        <!-- behavior buttons-->
+        <% tasks.forEach(function(r) {%>
+          <button id='<%= r.id %>'
+              onClick='javascript:logTask(<%= r.id %>);'><%= r.name %>
+          </button><br>
+        <% }); %>
+        <button>Response Pres.</button><br>
+        <button>Monitoring</button><br>
+        <button>Preform. Feedbk.</button><br>
+        <button>Beg/End Class</button><br>
+        <button>Equip. Mgt.</button><br>
+        <button>Organization</button><br>
+        <button>Behavior Mgt.</button><br>
+        <button>Other Tasks</button>
+      </div>
+    </div>
+    <a href="/db-info">Database Information</a>
+    <!-- javascript files-->
+    <script src="js/observation.js"></script>
+  </body>
 </html>
